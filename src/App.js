@@ -1,24 +1,18 @@
-import logo from './logo.svg';
+import React from 'react';
+import { Canvas } from 'react-three-fiber';
+import { OrbitControls } from '@react-three/drei';
+import Cake from './Cake';
 import './App.css';
-
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+          <Canvas camera={{ position: [0, 5, 10] }}> {/* Adjusted camera position */}
+              <ambientLight />
+              <pointLight position={[0, 10, 10]} />
+              <OrbitControls />
+              <Cake />
+          </Canvas>
+      </div>
   );
 }
 
